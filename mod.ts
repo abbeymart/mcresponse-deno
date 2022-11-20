@@ -8,7 +8,9 @@
  * Test case composition - see the test folder
  *
  * ```ts
- * import { assertEquals, assertNotEquals, postTestResult } from "https://deno.land/x/mcresponse/mod.ts";
+ * import { Status, getResMessage, } from "https://deno.land/x/mcresponse/mod.ts";
+ *
+ * // See the test folder for different test cases / scenarios and usage
  *
  * ```
  *
@@ -21,4 +23,4 @@
  */
 
 // export module functions
-export * from "./src/index.ts"
+export * from "./src/index.ts";
