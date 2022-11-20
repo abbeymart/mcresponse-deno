@@ -8,7 +8,7 @@
  * Test case composition - see the test folder
  *
  * ```ts
- * import { Status, getResMessage, } from "https://deno.land/x/mcresponse/mod.ts";
+ * import { Status, getResMessage, } from "https://deno.land/x/mcresponse@v0.2.1/mod.ts";
  *
  * // See the test folder for different test cases / scenarios and usage
  *
