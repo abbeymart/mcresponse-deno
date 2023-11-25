@@ -1,33 +1,39 @@
 /**
- * @Author: abbeymart | Abi Akindele | @Created: 2020-07-11
+ * @Author: abbeymart | Abi Akindele | @Created: 2020-07-11, 2023-11-25
  * @Company: Copyright 2020 Abi Akindele  | mConnect.biz
  * @License: All Rights Reserved | LICENSE.md
  * @Description: @mconnect/res-messages, response-messages | utility functions
  */
 
 import {
+  ValueType,
   MessageObject,
   ResponseMessage,
   ResponseMessageOptions,
   stdResMessages,
-  ValueType,
 } from "./stdResMessages.ts";
 
-function msgFunc(res: ResponseMessage): ResponseMessage {
+function msgFunc<T extends ValueType>(res: {
+  code: string;
+  resCode: number;
+  resMessage: string;
+  message: string;
+  value: T | ValueType;
+}): ResponseMessage<T> {
   return {
     code: res.code,
     message: res.message,
-    value: res.value,
+    value: res.value as T,
     resCode: res.resCode,
     resMessage: res.resMessage,
   };
 }
 
-export function getResMessage(
+export function getResMessage<T extends ValueType>(
   msgType: string,
-  options?: ResponseMessageOptions,
-): ResponseMessage {
-  let value: ValueType,
+  options?: ResponseMessageOptions<T>,
+): ResponseMessage<T> {
+  let value: T | ValueType,
     code: string,
     resCode: number,
     resMessage: string,
@@ -51,18 +57,19 @@ export function getResMessage(
     resMessage = val.resMessage;
     message = options && options.message ? `${options.message}` : val.message;
   }
-  return msgFunc({ code, message, value, resCode, resMessage });
+  return msgFunc<T>({ code, message, value, resCode, resMessage });
 }
 
-export function getParamsMessage(
+export function getParamsMessage<T extends ValueType>(
   msgObject: MessageObject,
   msgType = "paramsError",
-): ResponseMessage {
+): ResponseMessage<T | ValueType> {
   let messages = "";
   for (const [key, msg] of Object.entries(msgObject)) {
     messages = messages ? `${messages} | ${key} : ${msg}` : `${key} : ${msg}`;
   }
   return getResMessage(msgType, {
     message: messages,
+    value: {},
   });
 }

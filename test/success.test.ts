@@ -18,7 +18,7 @@ const msgType = "success",
     code: "success",
     resCode: Status.OK,
     resMessage: "OK",
-    value: "",
+    value: {},
     message: "Request completed successfully",
   };
 let options = {

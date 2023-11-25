@@ -15,7 +15,7 @@ import { getResMessage, Status } from "../src/index.ts";
 
 const msgType = "checkError",
   options = {
-    value: "",
+    value: {},
     code: "",
     message: "",
   },
