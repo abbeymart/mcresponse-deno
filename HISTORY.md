@@ -1,5 +1,10 @@
 # Historical logs
 
+## Version 0.3.2
+
+- Release date: Nov 28, 2023
+- Refactor-generic-type-for-getParamsMessage-function-v0.3.2
+
 ## Version 0.3.1
 
 - Release date: Nov 27, 2023

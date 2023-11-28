@@ -63,13 +63,12 @@ export function getResMessage<T extends ValueType>(
 export function getParamsMessage<T extends ValueType>(
   msgObject: MessageObject,
   msgType = "paramsError",
-): ResponseMessage<T | ValueType> {
+): ResponseMessage<T> {
   let messages = "";
   for (const [key, msg] of Object.entries(msgObject)) {
     messages = messages ? `${messages} | ${key} : ${msg}` : `${key} : ${msg}`;
   }
   return getResMessage(msgType, {
     message: messages,
-    value: {},
   });
 }
