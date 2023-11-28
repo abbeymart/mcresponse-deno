@@ -14,8 +14,13 @@ export type ValueType =
     | number
     | Array<string>
     | Array<number>
+    | Date
+    | Array<Date>
     | boolean
-    | Array<boolean>;
+    | Array<boolean>
+    | { [key: string]: ValueType }
+    | unknown;
+
 
 export interface ResponseMessage<T extends ValueType> {
     code: string;

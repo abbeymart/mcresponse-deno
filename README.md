@@ -10,7 +10,7 @@
 import {
   getResMessage,
   Status,
-} from "https://deno.land/x/mcresponse@v0.3.0/mod.ts";
+} from "https://deno.land/x/mcresponse@v0.3.1/mod.ts";
 
 // See the test folder for different test cases / scenarios and usage
 ```
